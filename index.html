@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AlertRx Survey</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      background: linear-gradient(to right, #e6f2ff, #f8fbff);
+      color: #033e63;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 1rem;
+    }
+    .banner {
+      width: 100%;
+      max-width: 900px;
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 8px 24px rgba(0, 60, 100, 0.1);
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .header h1 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      background: linear-gradient(to right, #0077cc, #00b7dd);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .header p {
+      font-size: 1rem;
+      color: #333;
+    }
+    .section {
+      background: linear-gradient(to right, #e1f3ff, #f0faff);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      box-shadow: inset 0 2px 6px rgba(0,0,0,0.05);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .section:hover {
+      transform: scale(1.015);
+    }
+    .section-title {
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+      gap: 0.5rem;
+    }
+    .section-title img {
+      width: 28px;
+      height: 28px;
+    }
+    .section-sub {
+      font-size: 0.95rem;
+    }
+    .accordion {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: all 0.4s ease;
+      font-size: 0.9rem;
+      color: #444;
+    }
+    .section.active .accordion {
+      max-height: 300px;
+      opacity: 1;
+      margin-top: 0.5rem;
+    }
+
+    .accordion-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .feature-text {
+      flex: 1 1 250px;
+    }
+
+    .qr-wrapper {
+      text-align: center;
+      flex: 0 0 120px;
+    }
+
+    .qr-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 8px;
+      margin-bottom: 0.3rem;
+    }
+
+    .qr-label {
+      font-size: 0.85rem;
+      color: #055e99;
+    }
+
+    @media (max-width: 600px) {
+      .accordion-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .qr-wrapper {
+        align-self: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="banner">
+    <div class="header">
+      <h1>🩺 Help Improve AlertRx</h1>
+      <p>Select your role below and contribute to smarter medication care.</p>
+    </div>
+
+    <!-- Patients -->
+    <div class="section" onclick="toggleAccordion(this)">
+      <div class="section-title">
+        <img src="https://img.icons8.com/fluency/48/chat--v1.png" alt="Patient" />
+        Patients
+      </div>
+      <div class="section-sub">Share your experience</div>
+      <div class="accordion">
+        <div class="accordion-content">
+          <div class="feature-text">
+            • Smart reminders<br>
+            • Easy symptom tracking<br>
+            • Personalized alerts<br>
+            • Help improve patient tools
+          </div>
+          <div class="qr-wrapper">
+            <a href="https://forms.gle/zqWHsh5VK5s5fkAN9" target="_blank">
+              <img src="assests/images/patient-qr.png" class="qr-img" alt="Patient QR" />
+            </a>
+            <div class="qr-label">Start Patient Survey</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pharmacists -->
+    <div class="section" onclick="toggleAccordion(this)">
+      <div class="section-title">
+        <img src="https://img.icons8.com/fluency/48/pill.png" alt="Pharmacist" />
+        Pharmacists
+      </div>
+      <div class="section-sub">Your input shapes smarter care</div>
+      <div class="accordion">
+        <div class="accordion-content">
+          <div class="feature-text">
+            • Suggest improvements<br>
+            • Alert on med issues<br>
+            • Report safety ideas<br>
+            • Contribute to smarter dispensing
+          </div>
+          <div class="qr-wrapper">
+            <a href="https://forms.gle/fu2Js6dLSvwnMNvs7" target="_blank">
+              <img src="assests/images/pharma_qr.png" class="qr-img" alt="Pharmacist QR" />
+            </a>
+            <div class="qr-label">Start Pharmacist Survey</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Doctors -->
+    <div class="section" onclick="toggleAccordion(this)">
+      <div class="section-title">
+        <img src="https://img.icons8.com/fluency/48/stethoscope.png" alt="Doctor" />
+        Doctors
+      </div>
+      <div class="section-sub">Help enhance medication safety</div>
+      <div class="accordion">
+        <div class="accordion-content">
+          <div class="feature-text">
+            • Report case feedback<br>
+            • Influence protocols<br>
+            • Suggest diagnostic insights<br>
+            • Shape smarter alerts
+          </div>
+          <div class="qr-wrapper">
+            <a href="https://forms.gle/oS91BSGsaKezQ3qX8" target="_blank">
+              <img src="assests/images/doctor-qr.png" class="qr-img" alt="Doctor QR" />
+            </a>
+            <div class="qr-label">Start Doctor Survey</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleAccordion(section) {
+      const isActive = section.classList.contains("active");
+      document.querySelectorAll(".section").forEach(sec => sec.classList.remove("active"));
+      if (!isActive) section.classList.add("active");
+    }
+  </script>
+
+</body>
+</html>
